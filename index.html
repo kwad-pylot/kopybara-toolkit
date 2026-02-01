@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopybara Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #242424;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-orange: #f59e0b;
+            --accent-teal: #14b8a6;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-green: #22c55e;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-accent, var(--accent-orange));
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-card.stretch { --card-accent: var(--accent-teal); }
+        .app-card.breathe { --card-accent: var(--accent-blue); }
+        .app-card.focus { --card-accent: var(--accent-purple); }
+        .app-card.hydrate { --card-accent: var(--accent-green); }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-tag {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .coming-soon {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .coming-soon .card-title::after {
+            content: " (Coming Soon)";
+            font-size: 0.75rem;
+            color: var(--accent-orange);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer .kopybara {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .made-with {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .logo {
+                font-size: 3rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🐹</div>
+            <h1>Kopybara Toolkit</h1>
+            <p class="tagline">Your personal wellness & productivity apps</p>
+        </header>
+
+        <div class="apps-grid">
+            <a href="https://kopybara-stretch-timer.vercel.app" target="_blank" class="app-card stretch">
+                <div class="card-header">
+                    <div class="card-icon">🧘</div>
+                    <div>
+                        <div class="card-title">Stretch Timer</div>
+                        <div class="card-subtitle">Daily movement routine</div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    8 targeted stretches for lower back, knees, and hips. Audio cues guide you through each stretch with customizable durations.
+                </p>
+                <div class="card-features">
+                    <span class="feature-tag">8 stretches</span>
+                    <span class="feature-tag">Audio cues</span>
+                    <span class="feature-tag">Customizable</span>
+                </div>
+            </a>
+
+            <a href="https://kopybara-breathing-app.vercel.app" target="_blank" class="app-card breathe">
+                <div class="card-header">
+                    <div class="card-icon">🌬️</div>
+                    <div>
+                        <div class="card-title">Breathe Easy</div>
+                        <div class="card-subtitle">Guided breathing exercises</div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    5 breathing techniques including Box Breathing, 4-7-8, and more. Visual animations and audio guide you to calm and focus.
+                </p>
+                <div class="card-features">
+                    <span class="feature-tag">5 techniques</span>
+                    <span class="feature-tag">Visual guide</span>
+                    <span class="feature-tag">Relaxation</span>
+                </div>
+            </a>
+
+            <div class="app-card focus coming-soon">
+                <div class="card-header">
+                    <div class="card-icon">⏱️</div>
+                    <div>
+                        <div class="card-title">Focus Timer</div>
+                        <div class="card-subtitle">Pomodoro productivity</div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Stay focused with timed work sessions and breaks. Track your productivity streaks and build better work habits.
+                </p>
+                <div class="card-features">
+                    <span class="feature-tag">Pomodoro</span>
+                    <span class="feature-tag">Streaks</span>
+                    <span class="feature-tag">Breaks</span>
+                </div>
+            </div>
+
+            <div class="app-card hydrate coming-soon">
+                <div class="card-header">
+                    <div class="card-icon">💧</div>
+                    <div>
+                        <div class="card-title">Hydration Tracker</div>
+                        <div class="card-subtitle">Stay hydrated</div>
+                    </div>
+                </div>
+                <p class="card-description">
+                    Track your daily water intake with gentle reminders. Build the habit of staying properly hydrated throughout the day.
+                </p>
+                <div class="card-features">
+                    <span class="feature-tag">Reminders</span>
+                    <span class="feature-tag">Daily goals</span>
+                    <span class="feature-tag">Simple</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="kopybara">🐹</div>
+            <p>Built with care by Kopybara</p>
+            <p class="made-with">Your digital wellness companion</p>
+        </footer>
+    </div>
+</body>
+</html>
